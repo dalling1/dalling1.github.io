@@ -18,6 +18,9 @@
     color: inherit;
     text-decoration: none;
    }
+   body {
+    text-align: center;
+   }
 
    #themeswitch {
     position: absolute;
@@ -26,11 +29,11 @@
    }
    /* dark theme (checkbox on) */
    input:checked + .slider {
-    background-color: #444; /* green */
+    background-color: #444;
    }
    /* light theme (checkbox off) */
    input + .slider {
-    background-color: #eec; /* green */
+    background-color: #eec;
    }
 
 
@@ -46,14 +49,14 @@
 
    /* for mobile browsers */
    body {
-    text-align: center;
+    font-size: 2.5vmax;
    }
    html {
     padding: 0;
     margin: 0;
    }
    .banner {
-    font-size: 44px;
+    font-size: 8vmax;
     margin: 50px 0;
     font-weight: 100;
    }
@@ -79,7 +82,8 @@
     align-items: center;
 
     width: 100%;
-    height: 200px;
+    height: 300px;
+    height: 30vh;
     border: 1px dashed #888;
     margin-bottom: 5px;
    }
@@ -93,7 +97,7 @@
     box-shadow: 2px 2px 3px #aaa6;
    }
    .item h1 {
-    font-size: 30px;
+    font-size: 5vmax;
     font-weight: bold;
     background-color: #00f3;
     border-radius: 10px;
@@ -109,7 +113,7 @@
    }
    .item p {
     padding: 5px;
-    width: 80%;
+    width: 90%;
     text-align: left;
     margin: 0 auto;
    }
@@ -119,14 +123,21 @@
     body {
      text-align: center;
      padding: 20px;
+     font-size: 20px;
     }
-    .collection {
+    .banner {
+     font-size: 2em;
+    }
+   .collection {
      width: 85%;
      margin: 0 auto;
     }
     .item {
      width: 47%;
      margin: 1% auto;
+    }
+    .item h1 {
+     font-size: 2em;
     }
    }
    @media screen and (min-width: 1600px) {
