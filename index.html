@@ -1,18 +1,170 @@
 <!DOCTYPE html>
  <head>
   <title>dalling1</title>
+  <link rel="stylesheet" href="slider.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;400;800&display=swap" rel="stylesheet">
   <style>
+   /* defaults */
+   * {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    transition: all ease 2s;
+    font-family: "League Spartan", sans-serif;
+   }
+   a {
+    color: inherit;
+    text-decoration: none;
+   }
+
+   #themeswitch {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+   }
+   /* dark theme (checkbox on) */
+   input:checked + .slider {
+    background-color: #444; /* green */
+   }
+   /* light theme (checkbox off) */
+   input + .slider {
+    background-color: #eec; /* green */
+   }
+
+
+   /* light/dark themes */
+   .dark {
+    color: #bbb;
+    background-color: #222;
+   }
+   .light {
+    color: #222;
+    background-color: #ddd;
+   }
+
+   /* for mobile browsers */
    body {
     text-align: center;
    }
+   html {
+    padding: 0;
+    margin: 0;
+   }
    .banner {
     font-size: 44px;
-    margin-top: 50px;
+    margin: 50px 0;
+    font-weight: 100;
+   }
+   .collection {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+
+    border: 1px solid #000;
+    padding: 5px;
+   }
+   .dark .collection {
+    border: 1px solid #fff;
+   }
+
+   .item .inner {
+    width: 80%;
+   }
+   .item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 200px;
+    border: 1px dashed #888;
+    margin-bottom: 5px;
+   }
+   .item:last-of-type {
+    margin-bottom: 0;
+   }
+   .light .item {
+    box-shadow: 2px 2px 3px #4446;
+   }
+   .dark .item {
+    box-shadow: 2px 2px 3px #aaa6;
+   }
+   .item h1 {
+    font-size: 30px;
+    font-weight: bold;
+    background-color: #00f3;
+    border-radius: 10px;
+   }
+   .light .item h1 {
+    background-color: #36fc;
+   }
+   .item:hover h1 {
+    background-color: #03c9;
+    cursor: pointer;
+    transition: all ease 0.2s;
+   }
+   .item p {
+    padding: 5px;
+   }
+
+   /* for larger screens */
+   @media screen and (min-width: 1000px) {
+    body {
+     text-align: center;
+     padding: 20px;
+    }
+    .collection {
+     width: 85%;
+     margin: 0 auto;
+    }
+    .item {
+     width: 47%;
+     margin: 1% auto;
+    }
+   }
+   @media screen and (min-width: 1600px) {
+    .item {
+     width: 30%;
    }
   </style>
  </head>
- <body>
-  <div class="banner">dalling1</div>
-  <p>This is index.html.</p>
+ <body id="body" class="dark" onload="checkTheme()">
+  <div id="themeswitch">Change theme:<label class="switch"><input id="theme" type="checkbox" checked onclick="changeTheme()" /><span class="slider round"></span></label></div>
+  <div class="banner">Graph-Drawing Tools</div>
+  <div class="collection">
+   <div class="item"><div class="inner"><h1><a href="automorphisms/">Automorphism Editor</a></h1><p>Construct automorphisms graphically or using text entry.</p></div></div>
+   <div class="item"><div class="inner"><h1><a href="LocallyCompactToolsCollection/">Locally Compact Tools Collection</a></h1><p>A collection of on-line code, tools and other items relating to locally compact groups.</p></div></div>
+   <div class="item"><div class="inner"><h1><a href="focusmodels/">Focus Models for Tree Graphs</a></h1><p>Focus model layouts for drawing tree graphs.</p></div></div>
+   <div class="item"><div class="inner"><h1><a href="labelregulartrees/">Label-Regular Trees</a></h1><p>A tool for drawing label-regular trees.</p></div></div>
+   <div class="item"><div class="inner"><h1><a href="freeproductgraphs/">Free-Product Graphs</a></h1><p>Draws the free product of user-specified graphs.</p></div></div>
+   <div class="item"><div class="inner"><h1><a href="cubesymmetry/">Cube Symmetry</a></h1><p>Drag-and-drop relabelling of a cube to show symmetries.</p></div></div>
+  </div>
+
+  <script>
+   function changeTheme(){
+    var dark = document.getElementById("body").classList.contains("dark");
+    if (dark){
+     document.getElementById("body").classList.remove("dark");
+     document.getElementById("body").classList.add("light");
+    } else {
+     document.getElementById("body").classList.remove("light");
+     document.getElementById("body").classList.add("dark");
+    }
+   }
+   function checkTheme(){
+    // if the theme switch is checked (dark theme on), set the body class accordingly
+    var dark = document.getElementById("theme").checked;
+    if (dark){
+     document.getElementById("body").classList.remove("light");
+     document.getElementById("body").classList.add("dark");
+    } else {
+     document.getElementById("body").classList.remove("dark");
+     document.getElementById("body").classList.add("light");
+    }
+   }
+  </script>
  </body>
 </html>
