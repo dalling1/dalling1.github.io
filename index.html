@@ -22,6 +22,11 @@
     text-align: center;
    }
 
+   #homelink {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+   }
    #themeswitch {
     position: absolute;
     top: 5px;
@@ -147,6 +152,7 @@
   </style>
  </head>
  <body id="body" class="dark" onload="checkTheme()">
+  <div id="homelink"><a href="https://github.com/dalling1">github.com/dalling1/</a></div>
   <div id="themeswitch">Change theme:<label class="switch"><input id="theme" type="checkbox" checked onclick="changeTheme()" /><span class="slider round"></span></label></div>
   <div class="banner">Graph-Drawing Tools</div>
   <div class="collection">
